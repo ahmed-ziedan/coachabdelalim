@@ -1,0 +1,39 @@
+{
+  "name": "coach-abdelalim",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "npm run validate-content && next build",
+    "build:production": "npm run validate-content -- --mode production && next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate-content": "tsx src/lib/validate-content-cli.ts"
+  },
+  "dependencies": {
+    "lucide-react": "^0.511.0",
+    "next": "16.4.3",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4.5.2",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.3",
+    "jsdom": "^26.1.0",
+    "playwright-core": "^1.64.1",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.0",
+    "typescript": "^5",
+    "vitest": "^3.2.1"
+  }
+}

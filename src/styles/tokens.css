@@ -1,0 +1,27 @@
+/* ─── Coach Abdelalim Design Tokens ───
+ * These are the semantic CSS custom properties for the brand.
+ * Components use token names, not literal hex values.
+ * Values may be fine-tuned after reviewing final photography.
+ */
+
+:root {
+  /* ─ Color tokens ─ */
+  --color-page: #0b0d0c;
+  --color-surface: #151816;
+  --color-surface-muted: #20251f;
+  --color-text: #f4f4ee;
+  --color-text-muted: #b9bdb5;
+  --color-action: #c8f542;
+  --color-action-hover: #d9ff5c;
+  --color-signal: #ff3434;
+
+  /* ─ Layout tokens ─ */
+  --radius-card: 1.25rem;
+  --shadow-card: 0 1.25rem 4rem rgb(0 0 0 / 0.24);
+
+  /* ─ Header ─ */
+  --header-height: 4rem;
+
+  /* ─ Focus ring ─ */
+  --focus-ring: 0 0 0 2px var(--color-action);
+}
