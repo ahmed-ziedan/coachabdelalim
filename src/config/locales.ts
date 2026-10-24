@@ -16,9 +16,9 @@ export function isValidLocale(value: unknown): value is Locale {
   return typeof value === 'string' && locales.includes(value as Locale);
 }
 
-/** Get the public URL path for a locale */
+/** Get the public URL path for a locale (with trailing slash for static export) */
 export function getLocalePath(locale: Locale): string {
-  return locale === 'ar' ? '/' : '/en';
+  return locale === 'ar' ? '/' : '/en/';
 }
 
 /** Get the opposite locale (for language switcher) */
@@ -28,7 +28,8 @@ export function getAlternateLocale(locale: Locale): Locale {
 
 /**
  * Build the language-switch href preserving the hash fragment.
- * Example: switching from Arabic with #plans → /en#plans
+ * Example: switching from Arabic with #plans → /en/#plans
+ * Example: switching from English with #plans → /#plans
  */
 export function buildLocaleSwitchHref(
   currentLocale: Locale,

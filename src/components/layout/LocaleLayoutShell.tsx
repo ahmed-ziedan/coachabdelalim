@@ -1,0 +1,30 @@
+import { fontVariables } from '@/styles/fonts';
+import { SkipLink } from '@/components/ui/SkipLink';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { Footer } from '@/components/layout/Footer';
+import { MobileConsultationBar } from '@/components/layout/MobileConsultationBar';
+import type { Locale } from '@/config/locales';
+import { getDirection } from '@/config/locales';
+
+interface LocaleLayoutShellProps {
+  locale: Locale;
+  children: React.ReactNode;
+}
+
+export function LocaleLayoutShell({ locale, children }: LocaleLayoutShellProps) {
+  const dir = getDirection(locale);
+
+  return (
+    <html lang={locale} dir={dir} className={`${fontVariables} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-[var(--color-page)] text-[var(--color-text)] selection:bg-[var(--color-action)] selection:text-[var(--color-page)]">
+        <SkipLink locale={locale} />
+        <SiteHeader locale={locale} />
+        <main id="main-content" className="flex-1 pb-16 md:pb-0">
+          {children}
+        </main>
+        <Footer locale={locale} />
+        <MobileConsultationBar locale={locale} />
+      </body>
+    </html>
+  );
+}

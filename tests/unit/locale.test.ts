@@ -46,8 +46,8 @@ describe('Locale configuration and utilities', () => {
       expect(getLocalePath('ar')).toBe('/');
     });
 
-    it('maps English to /en', () => {
-      expect(getLocalePath('en')).toBe('/en');
+    it('maps English to /en/', () => {
+      expect(getLocalePath('en')).toBe('/en/');
     });
   });
 
@@ -60,19 +60,19 @@ describe('Locale configuration and utilities', () => {
 
   describe('buildLocaleSwitchHref', () => {
     it('generates sibling route without hash', () => {
-      expect(buildLocaleSwitchHref('ar')).toBe('/en');
+      expect(buildLocaleSwitchHref('ar')).toBe('/en/');
       expect(buildLocaleSwitchHref('en')).toBe('/');
     });
 
     it('preserves valid hash fragments across language switch', () => {
-      expect(buildLocaleSwitchHref('ar', '#plans')).toBe('/en#plans');
+      expect(buildLocaleSwitchHref('ar', '#plans')).toBe('/en/#plans');
       expect(buildLocaleSwitchHref('en', '#plans')).toBe('/#plans');
-      expect(buildLocaleSwitchHref('ar', '#about')).toBe('/en#about');
+      expect(buildLocaleSwitchHref('ar', '#about')).toBe('/en/#about');
       expect(buildLocaleSwitchHref('en', '#contact')).toBe('/#contact');
     });
 
     it('ignores invalid hash values', () => {
-      expect(buildLocaleSwitchHref('ar', 'plans')).toBe('/en');
+      expect(buildLocaleSwitchHref('ar', 'plans')).toBe('/en/');
     });
   });
 });
