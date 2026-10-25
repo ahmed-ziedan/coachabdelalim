@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import type { Locale } from '@/config/locales';
 import { getAlternateLocale, getLocalePath } from '@/config/locales';
-import { getCoachName } from '@/config/brand';
 import { getNavAnchors } from '@/config/navigation';
 import { siteContent } from '@/content/site';
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink';
@@ -12,7 +11,7 @@ interface SiteHeaderProps {
 }
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
-  const coachName = getCoachName(locale);
+  const coachName = 'Coach Abdelalim';
   const anchors = getNavAnchors(locale);
   const alternateLocale = getAlternateLocale(locale);
   const switchLabel = locale === 'ar' ? 'EN' : 'العربية';
