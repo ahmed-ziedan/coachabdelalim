@@ -39,8 +39,8 @@ export type Transformation = {
 // ─── Media configuration ───
 
 export const heroMedia: HeroMedia = {
-  posterDesktop: "/media/coach/coach-about-portrait.jpg",
-  posterMobile: "/media/coach/coach-about-portrait.jpg",
+  posterDesktop: '/media/coach/coach-about-portrait.jpg',
+  posterMobile: '/media/coach/coach-about-portrait.jpg',
   alt: {
     ar: "كوتش عبدالعليم — مدرب شخصي متخصص في كمال الأجسام والتدريب البدني",
     en: "Coach Abdelalim — Bodybuilding Specialist and Personal Trainer",

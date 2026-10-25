@@ -4,11 +4,16 @@ import type { Localized } from "@/config/locales";
 // These are the prefilled messages for each CTA context.
 // They match the PROJECT_BRIEF § 6 WhatsApp CTA behaviour table.
 
-export type WhatsAppContext = "hero" | "plans" | "footer" | "mobile_bar";
+export type WhatsAppContext =
+  | "hero"
+  | "plans"
+  | "footer"
+  | "mobile_bar"
+  | "package";
 
 export const whatsappMessages: Record<WhatsAppContext, Localized> = {
   hero: {
-    ar: "أهلًا كوتش عبدالعليم، حابب أحجز Free Consultation. هدفي هو: ...",
+    ar: "أهلًا كوتش عبدالعليم، حابب أحجز استشارة مجانية. هدفي هو: ...",
     en: "Hi Coach Abdelalim, I'd like to book a free consultation. My goal is: ...",
   },
   plans: {
@@ -20,8 +25,12 @@ export const whatsappMessages: Record<WhatsAppContext, Localized> = {
     en: "I'd like to get started.",
   },
   mobile_bar: {
-    ar: "أهلًا كوتش عبدالعليم، حابب أحجز Free Consultation. هدفي هو: ...",
+    ar: "أهلًا كوتش عبدالعليم، حابب أحجز استشارة مجانية. هدفي هو: ...",
     en: "Hi Coach Abdelalim, I'd like to book a free consultation. My goal is: ...",
+  },
+  package: {
+    ar: "حابب أعرف تفاصيل الخطة دي.",
+    en: "I'd like to know more about this coaching plan.",
   },
 };
 
@@ -123,7 +132,7 @@ export const siteContent: SiteContent = {
       en: "Personalized coaching built around your goal, level, and lifestyle—so you can build a stronger body with a plan you can sustain.",
     },
     ctaPrimary: {
-      ar: "احجز Free Consultation",
+      ar: "احجز استشارة مجانية",
       en: "Book a Free Consultation",
     },
     ctaSecondary: {
@@ -212,7 +221,7 @@ export const siteContent: SiteContent = {
       {
         number: "02",
         label: {
-          ar: "نعرف هدفك ومستواك في Free Consultation",
+          ar: "نعرف هدفك ومستواك في استشارة مجانية",
           en: "Discuss your goal and level in a free consultation",
         },
       },
@@ -243,7 +252,7 @@ export const siteContent: SiteContent = {
       en: "Choose the plan that fits your goal",
     },
     discoveryMessage: {
-      ar: "حدد هدفك في Free Consultation واعرف أنسب خطة ليك",
+      ar: "حدد هدفك في استشارة مجانية واعرف أنسب خطة ليك",
       en: "Define your goal in a free consultation and find the plan that fits you best",
     },
     ctaLabel: {
@@ -258,7 +267,7 @@ export const siteContent: SiteContent = {
       en: "Ready to start with a real plan?",
     },
     body: {
-      ar: "ابعت رسالة واحجز Free Consultation، وخلّينا نعرف أنسب خطوة لهدفك.",
+      ar: "ابعت رسالة واحجز استشارة مجانية، وخلّينا نعرف أنسب خطوة لهدفك.",
       en: "Send a message to book a free consultation and find the right next step for your goal.",
     },
     ctaLabel: {

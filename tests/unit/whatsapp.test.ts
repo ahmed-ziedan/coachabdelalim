@@ -48,6 +48,11 @@ describe('WhatsApp utilities', () => {
       expect(heroMsg).not.toBe(plansMsg);
       expect(plansMsg).not.toBe(footerMsg);
     });
+
+    it('includes the selected plan name in its consultation message', () => {
+      expect(getWhatsAppMessage('ar', 'package', 'الخطة الأساسية')).toContain('الخطة الأساسية');
+      expect(getWhatsAppMessage('en', 'package', 'Starter Plan')).toContain('Starter Plan');
+    });
   });
 
   describe('buildWhatsAppUrl', () => {
@@ -90,6 +95,15 @@ describe('WhatsApp utilities', () => {
       expect(url).toMatch(/^https:\/\/wa\.me\/201012345678\?text=/);
       const urlParams = new URL(url!).searchParams;
       expect(urlParams.get('text')).toBe(getWhatsAppMessage('en', 'plans'));
+    });
+
+    it('includes the selected plan name in the WhatsApp URL message', () => {
+      (brand as { whatsappE164: string }).whatsappE164 = '201012345678';
+      const url = buildWhatsAppUrl('en', 'package', 'Starter Plan');
+
+      expect(new URL(url!).searchParams.get('text')).toBe(
+        "I'd like to know more about the Starter Plan.",
+      );
     });
   });
 });

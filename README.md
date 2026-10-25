@@ -14,7 +14,7 @@ A bilingual, mobile-first personal branding and conversion landing page for **ك
 | Setting | Value |
 | :--- | :--- |
 | **Framework preset** | Next.js (Static HTML Export) |
-| **Build command** | `npx next build` |
+| **Build command** | `npm run build:production` |
 | **Output directory** | `out` |
 | **Node.js version** | 20.x |
 
@@ -22,7 +22,7 @@ A bilingual, mobile-first personal branding and conversion landing page for **ك
 
 ## Current Status
 
-- **Phase 0 (Inputs and Launch Decisions):** Complete. Pending owner inputs are catalogued in [`PROJECT_READINESS.md`](./PROJECT_READINESS.md).
+- **Phase 0 (Inputs and Launch Decisions):** Core contact, Instagram, hero image, and current site URL are configured. Remaining launch inputs are catalogued in [`PROJECT_READINESS.md`](./PROJECT_READINESS.md).
 - **Phase 1 (Foundation):** Complete. Typed content model, design tokens, locale routing, validation gates, and unit test suite.
 - **Phase 2 (Core Landing Experience):** Complete. Art-directed dark editorial layout using real coach photography, deadlift technique video showcase, and bilingual responsive sections.
 
@@ -76,4 +76,14 @@ Open [http://localhost:3000](http://localhost:3000) for Arabic (default, RTL) or
 - **Static Language Switching:** Uses standard static links (`/en/` and `/`), preserving section anchors.
 - **Zero Business Data in UI:** Names, contacts, facts, packages, copy, and media paths reside in `src/config/` and `src/content/`.
 - **Content Validation Gate:** `validateContent` checks required bilingual strings, E.164 phone format, hero assets, and consent.
-- **Enquiry-First Plans:** Plans render in enquiry mode with a direct consultation CTA; no fake prices, features, or countdowns are shown.
+- **Enquiry-First Plans:** Three bilingual plan cards link to WhatsApp; prices and service features remain omitted until approved.
+- **Local Typography:** Arabic uses local Thmanyah Sans/Serif WOFF2 fonts; English uses local IBM Plex Sans at 400–700 weights.
+- **SEO Routes:** Localized canonical and language-alternate metadata, Open Graph image, `sitemap.xml`, and `robots.txt` use the current Cloudflare Pages URL.
+
+## Updating Business Details
+
+- Edit the WhatsApp number and social profiles in `src/config/brand.ts`. Store the WhatsApp number as digits only (without `+`).
+- The current canonical URL is `https://abdelalim.pages.dev`. Set `NEXT_PUBLIC_SITE_URL` to the custom HTTPS domain after it is purchased.
+- The approved hero image is `/media/coach/coach-about-portrait.jpg`, configured in `src/content/media.ts`.
+- Edit the three plans' bilingual names and summaries in `src/content/packages.ts`. Add approved prices and features there when finalized.
+- Arabic Thmanyah font declarations are in `src/app/globals.css`; assets are under `public/thmanyah typeface/`. English IBM Plex Sans declarations use `public/fonts/`.

@@ -5,6 +5,7 @@ import { buildWhatsAppUrl } from '@/lib/whatsapp';
 export interface WhatsAppLinkProps {
   locale: Locale;
   context: WhatsAppContext;
+  detail?: string;
   className?: string;
   children: React.ReactNode;
   'aria-label'?: string;
@@ -13,11 +14,12 @@ export interface WhatsAppLinkProps {
 export function WhatsAppLink({
   locale,
   context,
+  detail,
   className = '',
   children,
   'aria-label': ariaLabel,
 }: WhatsAppLinkProps) {
-  const href = buildWhatsAppUrl(locale, context);
+  const href = buildWhatsAppUrl(locale, context, detail);
 
   if (!href) {
     // In development / preview when WhatsApp number is not configured:

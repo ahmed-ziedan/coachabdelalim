@@ -16,7 +16,14 @@ export function isValidE164(number: string): boolean {
 export function getWhatsAppMessage(
   locale: Locale,
   context: WhatsAppContext,
+  detail?: string,
 ): string {
+  if (context === 'package' && detail) {
+    return locale === 'ar'
+      ? `حابب أعرف تفاصيل ${detail}.`
+      : `I'd like to know more about the ${detail}.`;
+  }
+
   return whatsappMessages[context][locale];
 }
 
@@ -32,6 +39,7 @@ export function getWhatsAppMessage(
 export function buildWhatsAppUrl(
   locale: Locale,
   context: WhatsAppContext,
+  detail?: string,
 ): string | null {
   const number = brand.whatsappE164;
 
@@ -39,7 +47,7 @@ export function buildWhatsAppUrl(
     return null;
   }
 
-  const message = getWhatsAppMessage(locale, context);
+  const message = getWhatsAppMessage(locale, context, detail);
   const encodedMessage = encodeURIComponent(message);
 
   return `https://wa.me/${number}?text=${encodedMessage}`;

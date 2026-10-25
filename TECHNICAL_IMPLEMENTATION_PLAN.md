@@ -1,5 +1,7 @@
 # Coach Abdelalim — Technical Implementation Plan
 
+> **Current implementation update (25 October 2026):** WhatsApp and Instagram are configured, the selected hero image is `coach-about-portrait.jpg`, the current canonical URL is `https://abdelalim.pages.dev`, three editable enquiry plans are live in the content model, and local Arabic Thmanyah/English IBM Plex fonts plus sitemap/robots/metadata are implemented. Approved prices/features, font web-use licensing confirmation, consent-cleared client transformations, and deployed device/accessibility/performance QA remain open.
+
 > **Purpose:** A build-ready technical plan for a greenfield bilingual coaching landing page.  
 > **Companion brief:** [`PROJECT_BRIEF.md`](./PROJECT_BRIEF.md)  
 > **Current repository state:** Empty workspace; bootstrap a new application rather than adapting an existing codebase.
@@ -147,7 +149,6 @@ Arabic is a stated business default. Automatically sending an Arabic-speaking vi
 │  │  ├─ seo.ts
 │  │  └─ utils.ts
 │  ├─ styles/
-│  │  ├─ fonts.ts
 │  │  └─ tokens.css
 │  └─ proxy.ts
 ├─ tests/
@@ -219,7 +220,7 @@ export type Transformation = {
 - `whatsappE164`, validated as digits only, 8–15 digits, with no placeholder in production.
 - Optional public email later; not needed for v1.
 - Approved social links. A social platform with no valid URL is absent from the rendered footer.
-- Site URL from `NEXT_PUBLIC_SITE_URL` at deploy time for metadata/sitemap only.
+- Site URL defaults to `https://abdelalim.pages.dev`; override with `NEXT_PUBLIC_SITE_URL` for a future custom HTTPS domain.
 
 Do not expose secrets in `NEXT_PUBLIC_*` variables. A WhatsApp number and public social URLs are public business data and may be configuration values; API keys, CMS tokens and analytics keys are not.
 
@@ -265,10 +266,9 @@ Set focus colors and hover colors through tokens and verify contrast, especially
 
 ### Type loading
 
-- Use `next/font/local` from one centralized `src/styles/fonts.ts` definition; it optimizes local delivery and reduces layout shift.
-- Load only the supplied and actually used Thmanyah weights; target WOFF2. Do not bundle every style by default.
-- Use a legal fallback stack for Arabic and English: `system-ui, Arial, sans-serif` is the last-resort fallback.
-- Use a separate Latin display class only for decorative package labels/numbers. All usable English prose must remain readable with a normal sans face.
+- Use the supplied Thmanyah WOFF2 files through centralized `@font-face` declarations in `src/app/globals.css`.
+- Map each supplied weight (300, 400, 500, 700, 900) explicitly for Thmanyah Sans, Serif Text, and Serif Display.
+- Use Thmanyah Sans/Serif for Arabic copy and IBM Plex Sans for all English copy, including labels and controls. Keep fallback families local to the project.
 - Preserve the original font files/name; never rename, modify or publicly redistribute them.
 
 ### Directionality rules
@@ -550,7 +550,7 @@ Run Chromium mobile and desktop flows:
 1. Add consent-cleared results gallery and optional compact testimonials.
 2. Add approved gym logos/experience treatment if rights are confirmed.
 3. Tune media export/crops, type scale, hover/focus states, reveal motion and reduced-motion behavior.
-4. Add localized metadata, Open Graph image, sitemap, robots and conservative JSON-LD.
+4. Add localized metadata, Open Graph image, sitemap, robots and conservative JSON-LD. Localized metadata, coach-photo Open Graph image, sitemap, and robots are implemented; a branded Open Graph graphic and JSON-LD remain optional follow-up work.
 5. Add optional privacy-respecting analytics only after owner approval.
 
 **Exit criteria:** all showcased results have consent; metadata/canonicals validate; Lighthouse and accessibility requirements are met or documented with an approved exception.

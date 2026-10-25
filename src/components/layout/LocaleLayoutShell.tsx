@@ -1,4 +1,3 @@
-import { fontVariables } from '@/styles/fonts';
 import { SkipLink } from '@/components/ui/SkipLink';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { Footer } from '@/components/layout/Footer';
@@ -15,7 +14,7 @@ export function LocaleLayoutShell({ locale, children }: LocaleLayoutShellProps) 
   const dir = getDirection(locale);
 
   return (
-    <html lang={locale} dir={dir} className={`${fontVariables} h-full antialiased`}>
+    <html lang={locale} dir={dir} className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-[var(--color-page)] text-[var(--color-text)] selection:bg-[var(--color-action)] selection:text-[var(--color-page)]">
         <SkipLink locale={locale} />
         <SiteHeader locale={locale} />

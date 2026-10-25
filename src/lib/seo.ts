@@ -28,6 +28,12 @@ export function getLocalizedMetadata(locale: Locale): Metadata {
       description,
       locale: locale === 'ar' ? 'ar_EG' : 'en_US',
       type: 'website',
+      images: [
+        {
+          url: '/media/coach/coach-about-portrait.jpg',
+          alt: 'Coach Abdelalim',
+        },
+      ],
     },
   };
 }

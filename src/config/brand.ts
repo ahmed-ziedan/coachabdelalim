@@ -27,13 +27,18 @@ export const brand = {
 
   /**
    * WhatsApp E.164 number — digits only, no +, no spaces.
-   * MUST be provided before production. Empty string triggers dev warning.
-   * Example: '201234567890'
+   * Digits only; the public WhatsApp URL uses this value for every CTA.
    */
-  whatsappE164: '',
+  whatsappE164: '201066969065',
 
   /** Approved social links — only links with valid https URLs will render. */
-  socials: [] as SocialLink[],
+  socials: [
+    {
+      platform: 'instagram',
+      href: 'https://www.instagram.com/3bd_elalim',
+      label: { ar: 'إنستجرام', en: 'Instagram' },
+    },
+  ] satisfies SocialLink[],
 
   /** Coach facts that may be referenced in copy */
   facts: {
@@ -54,10 +59,10 @@ export const brand = {
   },
 
   /**
-   * Production domain — set via NEXT_PUBLIC_SITE_URL env var.
-   * Used for canonical URLs, sitemap, and OG metadata only.
+   * Current Cloudflare Pages domain. Override with NEXT_PUBLIC_SITE_URL
+   * when a custom production domain is ready.
    */
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://abdelalim.pages.dev',
 } as const;
 
 /**

@@ -49,6 +49,14 @@ export function validateContent(mode: ValidationMode): ValidationIssue[] {
     });
   }
 
+  if (!isValidHttpsUrl(brand.siteUrl)) {
+    issues.push({
+      level: severity(true),
+      field: 'brand.siteUrl',
+      message: 'A valid HTTPS production site URL is required for canonical metadata.',
+    });
+  }
+
   // ─── Hero alt text ───
   for (const locale of locales) {
     if (!heroMedia.alt[locale]) {

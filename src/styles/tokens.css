@@ -5,6 +5,10 @@
  */
 
 :root {
+  --font-family-arabic: "Thmanyah Sans", "Thmanyah Serif Text", "Thmanyah Serif Display";
+  --font-family-english: "IBM Plex Sans";
+  --font-family-display: "Thmanyah Serif Display", "Thmanyah Serif Text", "Thmanyah Sans";
+
   /* ─ Color tokens ─ */
   --color-page: #0b0d0c;
   --color-surface: #151816;

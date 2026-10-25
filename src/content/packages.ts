@@ -1,8 +1,7 @@
 import type { Localized } from '@/config/locales';
 
 // ─── Package / Plan types ───
-// Data-driven plan configuration. No prices or features are rendered
-// until the owner provides approved data.
+// Edit plan names and summaries here. Add approved prices and features later.
 
 export type PackagePrice = {
   amount: number;
@@ -27,11 +26,41 @@ export type Package = {
 };
 
 /**
- * Approved packages configuration.
- * Currently empty — plans render in discovery/enquiry mode.
- * Owner must supply: name, price, currency, period, features, and availability.
+ * Three editable enquiry plans. Prices and service details stay hidden until approved.
  */
-export const packages: Package[] = [];
+export const packages: Package[] = [
+  {
+    id: 'starter',
+    enabled: true,
+    name: { ar: 'الخطة الأساسية', en: 'Starter Plan' },
+    summary: {
+      ar: 'تعرّف على تفاصيل الخطة وحدد مدى مناسبتها لهدفك.',
+      en: 'Explore the plan details and see how they fit your goals.',
+    },
+    ctaContext: 'package',
+  },
+  {
+    id: 'progress',
+    enabled: true,
+    featured: true,
+    name: { ar: 'خطة التطور', en: 'Progress Plan' },
+    summary: {
+      ar: 'تواصل لمعرفة التفاصيل واختيار الأنسب لاحتياجك.',
+      en: 'Get in touch to learn more and find the right fit.',
+    },
+    ctaContext: 'package',
+  },
+  {
+    id: 'complete',
+    enabled: true,
+    name: { ar: 'الخطة الشاملة', en: 'Complete Plan' },
+    summary: {
+      ar: 'ناقش هدفك مع الكوتش واعرف تفاصيل الخطة.',
+      en: 'Discuss your goals with the coach and learn what the plan includes.',
+    },
+    ctaContext: 'package',
+  },
+];
 
 /**
  * Check if any packages are approved and ready to display with pricing.
