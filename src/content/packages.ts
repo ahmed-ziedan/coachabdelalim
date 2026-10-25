@@ -35,7 +35,7 @@ export const packages: Package[] = [
       ar: 'بداية منظمة بخطة تدريب وتغذية ومتابعة أسبوعية.',
       en: 'A structured start with training, nutrition, and weekly follow-up.',
     },
-    price: { amount: 300, currency: 'EGP', period: 'month' },
+    price: { amount: 500, currency: 'EGP', period: 'month' },
     features: [
       { label: { ar: 'نظام غذائي مخصص', en: 'Personalized nutrition plan' }, included: true },
       { label: { ar: 'نظام تمرين PDF', en: 'PDF workout plan' }, included: true },
@@ -56,7 +56,7 @@ export const packages: Package[] = [
       ar: 'متابعة أعمق ومراجعة للفورم عشان تتطور بثقة.',
       en: 'More hands-on guidance and form reviews to keep your progress on track.',
     },
-    price: { amount: 500, currency: 'EGP', period: 'month' },
+    price: { amount: 700, currency: 'EGP', period: 'month' },
     features: [
       { label: { ar: 'كل مميزات Silver', en: 'Everything in Silver' }, included: true },
       { label: { ar: 'نظام تمرين متطور', en: 'Advanced workout plan' }, included: true },
@@ -76,7 +76,7 @@ export const packages: Package[] = [
       ar: 'متابعة كاملة ومباشرة بأعلى مستوى من الدعم.',
       en: 'Complete, hands-on coaching with the highest level of support.',
     },
-    price: { amount: 700, currency: 'EGP', period: 'month' },
+    price: { amount: 1000, currency: 'EGP', period: 'month' },
     features: [
       { label: { ar: 'كل مميزات Gold', en: 'Everything in Gold' }, included: true },
       { label: { ar: 'متابعة يومية', en: 'Daily follow-up' }, included: true },
