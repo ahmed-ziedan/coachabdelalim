@@ -162,7 +162,7 @@ export function Footer({ locale }: FooterProps) {
               href="https://ahmedziedan.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-condensed uppercase tracking-wider text-[11px] transition-colors hover:text-[var(--color-action)] hover:underline"
+              className="font-condensed tracking-wider text-[11px] transition-colors hover:text-[var(--color-action)]"
             >
               Developed by Ahmed Ziedan
             </a>

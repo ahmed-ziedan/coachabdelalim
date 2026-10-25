@@ -96,7 +96,7 @@ export function Hero({ locale }: HeroProps) {
                 <CheckCircle2 className="h-4 w-4 text-[var(--color-action)] shrink-0" />
                 <span>
                   {locale === "ar"
-                    ? "بدون التزام مسبق — استشارة أولية مجانية"
+                    ? "بدون التزام مسبق - استشارة أولية مجانية"
                     : "Zero commitment — Free initial consult"}
                 </span>
               </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { createPortal } from 'react-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import type { Locale } from '@/config/locales';
 import { getAlternateLocale, getLocalePath } from '@/config/locales';
@@ -65,13 +66,13 @@ export function MobileMenu({ locale }: MobileMenuProps) {
       </button>
 
       {/* Drawer Overlay */}
-      {isOpen && (
+      {isOpen && typeof document !== 'undefined' && createPortal(
         <div
           id="mobile-navigation"
           role="dialog"
           aria-modal="true"
           aria-label={locale === 'ar' ? 'قائمة الموقع' : 'Site navigation'}
-          className="fixed inset-x-0 top-16 bottom-0 z-50 flex flex-col justify-between bg-[var(--color-page)]/98 backdrop-blur-2xl px-6 py-8 border-t border-[var(--color-surface-muted)] overflow-y-auto"
+          className="fixed inset-x-0 top-[4.5rem] bottom-0 z-[60] flex flex-col justify-between overflow-y-auto border-t border-[var(--color-surface-muted)] bg-[var(--color-page)]/98 px-6 py-8 backdrop-blur-2xl md:hidden"
         >
           <nav className="flex flex-col space-y-4 text-start">
             {anchors.map((anchor) => (
@@ -110,7 +111,8 @@ export function MobileMenu({ locale }: MobileMenuProps) {
               {siteContent.header.ctaLabel[locale]}
             </WhatsAppLink>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );

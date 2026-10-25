@@ -1,5 +1,5 @@
-import { Award, Dumbbell, Globe, ShieldCheck } from 'lucide-react';
-import type { Locale } from '@/config/locales';
+import { Award, Dumbbell, Globe, ShieldCheck } from "lucide-react";
+import type { Locale } from "@/config/locales";
 
 interface TrustStripProps {
   locale: Locale;
@@ -8,34 +8,43 @@ interface TrustStripProps {
 export function TrustStrip({ locale }: TrustStripProps) {
   const trustPoints = [
     {
-      metric: '03',
-      unit: locale === 'ar' ? 'سنوات' : 'Years',
-      label: locale === 'ar' ? 'خبرة عملية موثوقة' : 'Hands-on Experience',
+      metric: "03",
+      unit: locale === "ar" ? "سنوات" : "Years",
+      label: locale === "ar" ? "خبرة عملية موثوقة" : "Hands-on Experience",
       icon: Award,
     },
     {
-      metric: 'SPEC',
-      unit: 'Bodybuilding',
-      label: locale === 'ar' ? 'تخصص كمال أجسام وتدريب بدني' : 'Specialized Physique Coaching',
+      metric: "SPEC",
+      unit: "Bodybuilding",
+      label:
+        locale === "ar"
+          ? "تخصص كمال أجسام وتدريب بدني"
+          : "Specialized Physique Coaching",
       icon: Dumbbell,
     },
     {
-      metric: 'GLOBAL',
-      unit: 'Online',
-      label: locale === 'ar' ? 'متابعة أونلاين بمصر ودولياً' : 'Worldwide Remote Support',
+      metric: "Global",
+      unit: "Online",
+      label:
+        locale === "ar"
+          ? "متابعة أونلاين بمصر ودولياً"
+          : "Worldwide Remote Support",
       icon: Globe,
     },
     {
-      metric: '100%',
-      unit: locale === 'ar' ? 'التزام' : 'Dedication',
-      label: locale === 'ar' ? 'متابعة فردية غير معلبة' : 'Individual Client Care',
+      metric: "100%",
+      unit: locale === "ar" ? "التزام" : "Dedication",
+      label:
+        locale === "ar" ? "متابعة فردية غير معلبة" : "Individual Client Care",
       icon: ShieldCheck,
     },
   ];
 
   return (
     <section
-      aria-label={locale === 'ar' ? 'نقاط القوة والمصداقية' : 'Trust and credibility'}
+      aria-label={
+        locale === "ar" ? "نقاط القوة والمصداقية" : "Trust and credibility"
+      }
       className="relative z-10 border-b border-[var(--color-surface-muted)] bg-[var(--color-surface)]/60 backdrop-blur-md py-8"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

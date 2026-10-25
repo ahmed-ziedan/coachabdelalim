@@ -2,13 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Dumbbell,
-  Pause,
-  Play,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Dumbbell, Pause, Play } from "lucide-react";
 import type { Locale } from "@/config/locales";
 import { getApprovedTransformationSlides } from "@/content/media";
 
@@ -16,9 +10,11 @@ interface TransformationCarouselProps {
   locale: Locale;
 }
 
-const AUTO_ADVANCE_MS = 6000;
+const AUTO_ADVANCE_MS = 4500;
 
-export function TransformationCarousel({ locale }: TransformationCarouselProps) {
+export function TransformationCarousel({
+  locale,
+}: TransformationCarouselProps) {
   const slides = getApprovedTransformationSlides();
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -148,7 +144,9 @@ export function TransformationCarousel({ locale }: TransformationCarouselProps) 
               <button
                 type="button"
                 onClick={() => goTo(previousIndex)}
-                aria-label={isArabic ? "الصورة السابقة" : "Previous transformation"}
+                aria-label={
+                  isArabic ? "الصورة السابقة" : "Previous transformation"
+                }
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-surface-muted)] bg-[var(--color-page)] text-[var(--color-text)] transition-colors hover:border-[var(--color-action)] hover:text-[var(--color-action)]"
               >
                 <PreviousIcon className="h-5 w-5" />
@@ -175,11 +173,19 @@ export function TransformationCarousel({ locale }: TransformationCarouselProps) 
                 }
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-surface-muted)] bg-[var(--color-page)] text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-action)] hover:text-[var(--color-action)]"
               >
-                {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+                {isPaused ? (
+                  <Play className="h-4 w-4" />
+                ) : (
+                  <Pause className="h-4 w-4" />
+                )}
               </button>
             </div>
 
-            <div className="flex items-center justify-center gap-1.5" role="group" aria-label={isArabic ? "اختيار صورة" : "Choose a transformation"}>
+            <div
+              className="flex items-center justify-center gap-1.5"
+              role="group"
+              aria-label={isArabic ? "اختيار صورة" : "Choose a transformation"}
+            >
               {slides.map((slide, index) => (
                 <button
                   key={slide.id}
@@ -192,8 +198,12 @@ export function TransformationCarousel({ locale }: TransformationCarouselProps) 
               ))}
             </div>
 
-            <span className="min-w-12 text-end font-condensed text-sm font-bold tabular-nums text-[var(--color-text-muted)]" aria-hidden="true">
-              {String(activeIndex + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+            <span
+              className="min-w-12 text-end font-condensed text-sm font-bold tabular-nums text-[var(--color-text-muted)]"
+              aria-hidden="true"
+            >
+              {String(activeIndex + 1).padStart(2, "0")} /{" "}
+              {String(slides.length).padStart(2, "0")}
             </span>
           </div>
         </div>
