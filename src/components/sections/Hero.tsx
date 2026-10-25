@@ -31,7 +31,7 @@ export function Hero({ locale }: HeroProps) {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8 xl:gap-16">
           {/* Text Content Column (Desktop: 7 cols) */}
-          <div className="flex flex-col text-start lg:col-span-7">
+          <div className="order-2 flex flex-col text-start lg:order-1 lg:col-span-7">
             {/* Overline Badge */}
             <div className="inline-flex items-center gap-2.5 self-start rounded-full border border-[var(--color-surface-muted)] bg-[var(--color-surface)]/80 px-4 py-1.5 backdrop-blur-md">
               <span className="relative flex h-2 w-2">
@@ -47,16 +47,16 @@ export function Hero({ locale }: HeroProps) {
             <h1 className="mt-6 text-4xl font-black tracking-tight text-[var(--color-text)] sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl leading-[1.12]">
               {locale === "ar" ? (
                 <>
-                  خطتك. متابعتك.{" "}
-                  <span className="text-[var(--color-action)] underline decoration-[var(--color-action)]/30 decoration-wavy underline-offset-8">
-                    نتيجتك.
+                  خطة{" "}
+                  <span className="bg-gradient-to-r rtl:bg-gradient-to-l from-[var(--color-text)] via-[var(--color-text-muted)] to-[var(--color-action)] bg-clip-text text-transparent">
+                    تناسبك. ونتيجة تستاهلها.
                   </span>
                 </>
               ) : (
                 <>
-                  Your plan. Your progress.{" "}
-                  <span className="text-[var(--color-action)] underline decoration-[var(--color-action)]/30 decoration-wavy underline-offset-8">
-                    Your result.
+                  A plan that{" "}
+                  <span className="bg-gradient-to-r rtl:bg-gradient-to-l from-[var(--color-text)] via-[var(--color-text-muted)] to-[var(--color-action)] bg-clip-text text-transparent">
+                    fits you. Results you deserve.
                   </span>
                 </>
               )}
@@ -104,7 +104,7 @@ export function Hero({ locale }: HeroProps) {
           </div>
 
           {/* Editorial Visual Anchor Column (Desktop: 5 cols) */}
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none lg:col-span-5">
+          <div className="order-1 relative mx-auto w-full max-w-md lg:order-2 lg:max-w-none lg:col-span-5">
             {/* Visual Frame */}
             <div className="relative overflow-hidden rounded-3xl border border-[var(--color-surface-muted)] bg-[var(--color-surface)] shadow-2xl shadow-black/80">
               {/* Aspect Ratio Container for Coach Media */}

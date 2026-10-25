@@ -124,12 +124,12 @@ export const siteContent: SiteContent = {
       en: "ONLINE COACHING • PERSONAL TRAINING",
     },
     headline: {
-      ar: "خطتك. متابعتك. نتيجتك.",
-      en: "Your plan. Your progress. Your result.",
+      ar: 'خطة تناسبك. ونتيجة تستاهلها.',
+      en: 'A plan that fits you. Results you deserve.',
     },
     subheadline: {
-      ar: "تدريب شخصي مصمم لهدفك، مستواك، وطريقة حياتك—عشان تبني جسم أقوى بخطة تقدر تكمل عليها.",
-      en: "Personalized coaching built around your goal, level, and lifestyle—so you can build a stronger body with a plan you can sustain.",
+      ar: "تدريب شخصي مصمم لهدفك، مستواك، وطريقة حياتك عشان تبني جسم أقوى بخطة تقدر تكمل عليها.",
+      en: "Personalized coaching built around your goal, level, and lifestyle, so you can build a stronger body with a plan you can sustain.",
     },
     ctaPrimary: {
       ar: "احجز استشارة مجانية",
