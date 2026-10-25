@@ -5,6 +5,7 @@ import { CoachIntro } from '@/components/sections/CoachIntro';
 import { CoachingOutcomes } from '@/components/sections/CoachingOutcomes';
 import { StartSteps } from '@/components/sections/StartSteps';
 import { Results } from '@/components/sections/Results';
+import { TransformationCarousel } from '@/components/sections/TransformationCarousel';
 import { Plans } from '@/components/sections/Plans';
 import { FinalCta } from '@/components/sections/FinalCta';
 
@@ -21,6 +22,7 @@ export function LandingPage({ locale }: LandingPageProps) {
       <CoachingOutcomes locale={locale} />
       <StartSteps locale={locale} />
       <Results locale={locale} />
+      <TransformationCarousel locale={locale} />
       <Plans locale={locale} />
       <FinalCta locale={locale} />
     </>

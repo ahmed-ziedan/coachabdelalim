@@ -36,6 +36,14 @@ export type Transformation = {
   caption?: Localized;
 };
 
+export type TransformationSlide = {
+  id: string;
+  src: string;
+  alt: Localized;
+  enabled: boolean;
+  consent: ConsentStatus;
+};
+
 // ─── Media configuration ───
 
 export const heroMedia: HeroMedia = {
@@ -98,12 +106,82 @@ export const coachPhotos: CoachPhoto[] = [
  */
 export const transformations: Transformation[] = [];
 
+/** Consent-cleared transformation collages shown in the dedicated carousel. */
+export const transformationSlides: TransformationSlide[] = [
+  {
+    id: "transformation-1",
+    src: "/media/Transformation/احمد.jpeg",
+    alt: {
+      ar: "صور قبل وبعد توضح رحلة تحول بدني لمتدرب",
+      en: "Before and after photos showing a trainee's physique transformation",
+    },
+    enabled: true,
+    consent: "approved",
+  },
+  {
+    id: "transformation-2",
+    src: "/media/Transformation/حليم.jpeg",
+    alt: {
+      ar: "صور توضح مراحل التقدم البدني لمتدرب",
+      en: "Photos showing a trainee's physical progress",
+    },
+    enabled: true,
+    consent: "approved",
+  },
+  {
+    id: "transformation-3",
+    src: "/media/Transformation/سيف.jpeg",
+    alt: {
+      ar: "صور قبل وبعد لتقدم متدرب في رحلته الرياضية",
+      en: "Before and after photos from a trainee's fitness journey",
+    },
+    enabled: true,
+    consent: "approved",
+  },
+  {
+    id: "transformation-4",
+    src: "/media/Transformation/عبدالعليم نفسه.jpeg",
+    alt: {
+      ar: "صور توضح مراحل التقدم البدني لكوتش عبدالعليم",
+      en: "Photos showing Coach Abdelalim's physical progress",
+    },
+    enabled: true,
+    consent: "approved",
+  },
+  {
+    id: "transformation-5",
+    src: "/media/Transformation/كريم.jpeg",
+    alt: {
+      ar: "صور قبل وبعد توضح رحلة التقدم البدني لمتدرب",
+      en: "Before and after photos showing a trainee's physical progress",
+    },
+    enabled: true,
+    consent: "approved",
+  },
+  {
+    id: "transformation-6",
+    src: "/media/Transformation/محمود.jpeg",
+    alt: {
+      ar: "صور قبل وبعد توضح رحلة التقدم البدني لمتدرب",
+      en: "Before and after photos showing a trainee's physical progress",
+    },
+    enabled: true,
+    consent: "approved",
+  },
+];
+
 /**
  * Get consent-approved transformations only.
  */
 export function getApprovedTransformations(): Transformation[] {
   return transformations.filter(
     (t) => t.enabled && t.consent === "approved" && t.beforeSrc && t.afterSrc,
+  );
+}
+
+export function getApprovedTransformationSlides(): TransformationSlide[] {
+  return transformationSlides.filter(
+    (slide) => slide.enabled && slide.consent === "approved" && slide.src,
   );
 }
 

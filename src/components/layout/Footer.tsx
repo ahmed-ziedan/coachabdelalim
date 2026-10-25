@@ -158,9 +158,14 @@ export function Footer({ locale }: FooterProps) {
           </p>
           <div className="flex items-center gap-2">
             <Sparkles className="h-3 w-3 text-[var(--color-action)]" />
-            <span className="font-condensed uppercase tracking-wider text-[11px]">
+            <a
+              href="https://ahmedziedan.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-condensed uppercase tracking-wider text-[11px] transition-colors hover:text-[var(--color-action)] hover:underline"
+            >
               Developed by Ahmed Ziedan
-            </span>
+            </a>
           </div>
         </div>
       </div>
