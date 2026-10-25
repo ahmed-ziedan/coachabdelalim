@@ -84,6 +84,6 @@ Open [http://localhost:3000](http://localhost:3000) for Arabic (default, RTL) or
 
 - Edit the WhatsApp number and social profiles in `src/config/brand.ts`. Store the WhatsApp number as digits only (without `+`).
 - The current canonical URL is `https://abdelalim.pages.dev`. Set `NEXT_PUBLIC_SITE_URL` to the custom HTTPS domain after it is purchased.
-- The approved hero image is `/media/coach/coach-about-portrait.jpg`, configured in `src/content/media.ts`.
+- The approved hero image is `/media/coach/coach-about-portrait.webp`, configured in `src/content/media.ts`.
 - Edit the three plans' bilingual names and summaries in `src/content/packages.ts`. Add approved prices and features there when finalized.
 - Arabic Thmanyah font declarations are in `src/app/globals.css`; assets are under `public/thmanyah typeface/`. English IBM Plex Sans declarations use `public/fonts/`.

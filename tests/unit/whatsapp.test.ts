@@ -31,7 +31,7 @@ describe('WhatsApp utilities', () => {
     it('returns Arabic message for hero context', () => {
       const msg = getWhatsAppMessage('ar', 'hero');
       expect(msg).toContain('أهلًا كوتش عبدالعليم');
-      expect(msg).toContain('Free Consultation');
+      expect(msg).toContain('استشارة مجانية');
     });
 
     it('returns English message for hero context', () => {

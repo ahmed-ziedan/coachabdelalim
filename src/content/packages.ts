@@ -5,7 +5,7 @@ import type { Localized } from '@/config/locales';
 
 export type PackagePrice = {
   amount: number;
-  currency: 'EGP' | 'USD';
+  currency: 'EGP';
   period: 'month' | 'one_time';
 };
 

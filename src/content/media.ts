@@ -47,8 +47,8 @@ export type TransformationSlide = {
 // ─── Media configuration ───
 
 export const heroMedia: HeroMedia = {
-  posterDesktop: '/media/coach/coach-about-portrait.jpg',
-  posterMobile: '/media/coach/coach-about-portrait.jpg',
+  posterDesktop: '/media/coach/coach-about-portrait.webp',
+  posterMobile: '/media/coach/coach-about-portrait.webp',
   alt: {
     ar: "كوتش عبدالعليم — مدرب شخصي متخصص في كمال الأجسام والتدريب البدني",
     en: "Coach Abdelalim — Bodybuilding Specialist and Personal Trainer",
@@ -60,7 +60,7 @@ export const heroMedia: HeroMedia = {
 export const coachPhotos: CoachPhoto[] = [
   {
     id: "portrait-gym",
-    src: "/media/coach/coach-about-portrait.jpg",
+    src: "/media/coach/coach-about-portrait.webp",
     alt: {
       ar: "كوتش عبدالعليم داخل الجيم بجوار الأوزان",
       en: "Coach Abdelalim in the gym next to weights",

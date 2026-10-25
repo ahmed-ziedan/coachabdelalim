@@ -22,14 +22,14 @@
 | 3 | **Facebook URL** | ⏳ 🔨 | No (hidden if absent) | Footer social link. Icon hidden until real URL is supplied. |
 | 4 | **TikTok URL** | ⏳ 🔨 | No (hidden if absent) | Footer social link. Icon hidden until real URL is supplied. |
 | 5 | **Approved logo / wordmark** | ⏳ 🔨 | No | Text wordmark used as temporary solution in header. Phase 1 uses text-only wordmark. |
-| 6 | **Hero source media** (photo/video) | ✅ | No | Approved hero image: `coach-about-portrait.jpg`; `coach-deadlift-technique.mp4` is used in the training showcase. |
+| 6 | **Hero source media** (photo/video) | ✅ | No | Approved hero image: `coach-about-portrait.webp`; `coach-deadlift-technique.mp4` is used in the training showcase. |
 | 7 | **Gym logo files** (Heros GYM, Noamany Fitness Center) | ⏳ 🔨 | No | Not rendered until files and written permission are received. Gym names used as text only. |
 | 8 | **Gym logo usage permission** | ⏳ 🔨 | No | Written confirmation required before displaying any gym logo. |
 | 9 | **Transformation media** (before/after) | ⏳ 🔨 | No | Client results gallery hidden until consent-approved assets arrive. Authentic coach training media showcased instead. |
 | 10 | **Transformation client consent** | ⏳ 🔨 | No | Each asset needs documented `approved` consent status. Section hidden if none approved. |
 | 11 | **Final package data** (names, prices, currency, period, features, exclusions) | ⏳ 🔨 | No | Three editable enquiry plans are configured; prices and service features remain pending approval. |
 | 12 | **Font files** (Arabic Thmanyah / English IBM Plex Sans) | ✅ | No | Arabic uses local Thmanyah families; English uses local IBM Plex Sans with explicit weights. |
-| 13 | **Font licence confirmation** | ⏳ 🔨 | No | Web-delivery interpretation of the Thmanyah licence must be confirmed before production font loading. Fallback active. |
+| 13 | **Font licence confirmation** | ✅ | No | Owner confirms the Thmanyah font licence covers web use. |
 | 14 | **Display font choice** | ✅ | No | Thmanyah Serif Display is used for display labels and numerals. |
 | 15 | **Production domain** | ✅ | No | Current canonical URL: `https://abdelalim.pages.dev`; override with `NEXT_PUBLIC_SITE_URL` after purchasing a custom domain. |
 | 16 | **Coach professional photos** (high-res originals) | ✅ | No | High-res gym portraits integrated in Hero, About, and Technique Showcase. |
@@ -67,5 +67,4 @@ The WhatsApp number, Instagram profile, selected hero image, and current Cloudfl
 3. Provide gym logo files and confirm written permission to display them
 4. Provide transformation before/after images with documented client consent
 5. Confirm package prices, service features, and exclusions; edit the three plans in `src/content/packages.ts`
-6. Confirm web-use licensing for the local Thmanyah fonts
-7. Approve or decline lightweight analytics (Vercel Analytics or Plausible)
+6. Approve or decline lightweight analytics (Vercel Analytics or Plausible)

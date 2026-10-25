@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import type { KeyboardEvent as ReactKeyboardEvent } from 'react';
 import Link from 'next/link';
 import { createPortal } from 'react-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
@@ -16,37 +17,64 @@ interface MobileMenuProps {
 
 export function MobileMenu({ locale }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const anchors = getNavAnchors(locale);
   const alternateLocale = getAlternateLocale(locale);
   const switchLabel = locale === 'ar' ? 'English (EN)' : 'العربية (AR)';
   const switchHref = getLocalePath(alternateLocale);
 
-  // Close menu on Escape key
+  // Keep keyboard focus inside the modal drawer and restore it to the trigger.
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
-        setIsOpen(false);
-      }
+    if (!isOpen) return;
+
+    const menuButton = menuButtonRef.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const focusFrame = window.requestAnimationFrame(() => {
+      dialogRef.current
+        ?.querySelector<HTMLElement>('a[href], button:not([disabled])')
+        ?.focus();
+    });
+
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      menuButton?.focus();
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+  const handleDialogKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') {
+      setIsOpen(false);
+      return;
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+    if (event.key !== 'Tab') return;
+
+    const focusable = event.currentTarget.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled])',
+    );
+    const first = focusable.item(0);
+    const last = focusable.item(focusable.length - 1);
+    if (!first || !last) {
+      event.preventDefault();
+      return;
+    }
+
+    const focusIsInside = event.currentTarget.contains(document.activeElement);
+    if (event.shiftKey && (!focusIsInside || document.activeElement === first)) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (!focusIsInside || document.activeElement === last)) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
 
   return (
     <div className="md:hidden">
       <button
+        ref={menuButtonRef}
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
@@ -68,10 +96,12 @@ export function MobileMenu({ locale }: MobileMenuProps) {
       {/* Drawer Overlay */}
       {isOpen && typeof document !== 'undefined' && createPortal(
         <div
+          ref={dialogRef}
           id="mobile-navigation"
           role="dialog"
           aria-modal="true"
           aria-label={locale === 'ar' ? 'قائمة الموقع' : 'Site navigation'}
+          onKeyDown={handleDialogKeyDown}
           className="fixed inset-x-0 top-[4.5rem] bottom-0 z-[60] flex flex-col justify-between overflow-y-auto border-t border-[var(--color-surface-muted)] bg-[var(--color-page)]/98 px-6 py-8 backdrop-blur-2xl md:hidden"
         >
           <nav className="flex flex-col space-y-4 text-start">

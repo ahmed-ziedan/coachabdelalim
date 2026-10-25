@@ -14,7 +14,7 @@ export function Hero({ locale }: HeroProps) {
   const content = siteContent.hero;
   const coachName = getCoachName(locale);
   const posterSrc =
-    heroMedia.posterDesktop || "/media/coach/coach-about-portrait.jpg";
+    heroMedia.posterDesktop || "/media/coach/coach-about-portrait.webp";
 
   return (
     <section

@@ -64,12 +64,14 @@ export function Plans({ locale }: PlansProps) {
 
               {plan.price && (
                 <div className="mt-5 flex items-end gap-2">
-                  <span className="pb-1 text-xs font-bold text-[var(--color-action)]">EGP</span>
+                  <span className="pb-1 text-xs font-bold text-[var(--color-action)]">{plan.price.currency}</span>
                   <span className="text-5xl font-black leading-none tracking-tight text-[var(--color-text)]">
                     {new Intl.NumberFormat(locale === 'ar' ? 'ar-EG' : 'en-EG').format(plan.price.amount)}
                   </span>
                   <span className="pb-1 text-xs text-[var(--color-text-muted)]">
-                    {locale === 'ar' ? 'شهريًا' : 'per month'}
+                    {plan.price.period === 'month'
+                      ? locale === 'ar' ? 'شهريًا' : 'per month'
+                      : locale === 'ar' ? 'دفعة واحدة' : 'one-time'}
                   </span>
                 </div>
               )}

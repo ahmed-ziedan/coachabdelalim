@@ -1,6 +1,7 @@
 import { SkipLink } from '@/components/ui/SkipLink';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { Footer } from '@/components/layout/Footer';
+import { FloatingWhatsAppButton } from '@/components/layout/FloatingWhatsAppButton';
 import type { Locale } from '@/config/locales';
 import { getDirection } from '@/config/locales';
 
@@ -21,6 +22,7 @@ export function LocaleLayoutShell({ locale, children }: LocaleLayoutShellProps) 
           {children}
         </main>
         <Footer locale={locale} />
+        <FloatingWhatsAppButton locale={locale} />
       </body>
     </html>
   );

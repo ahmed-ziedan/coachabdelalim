@@ -30,7 +30,7 @@ export function getLocalizedMetadata(locale: Locale): Metadata {
       type: 'website',
       images: [
         {
-          url: '/media/coach/coach-about-portrait.jpg',
+          url: '/media/coach/coach-about-portrait.webp',
           alt: 'Coach Abdelalim',
         },
       ],

@@ -1,6 +1,6 @@
 # Coach Abdelalim — Technical Implementation Plan
 
-> **Current implementation update (25 October 2026):** WhatsApp and Instagram are configured, the selected hero image is `coach-about-portrait.jpg`, the current canonical URL is `https://abdelalim.pages.dev`, three editable enquiry plans are live in the content model, and local Arabic Thmanyah/English IBM Plex fonts plus sitemap/robots/metadata are implemented. Approved prices/features, font web-use licensing confirmation, consent-cleared client transformations, and deployed device/accessibility/performance QA remain open.
+> **Current implementation update (25 October 2026):** WhatsApp and Instagram are configured, the selected hero image is `coach-about-portrait.webp`, the current canonical URL is `https://abdelalim.pages.dev`, three editable enquiry plans are live in the content model, and local Arabic Thmanyah/English IBM Plex fonts plus sitemap/robots/metadata are implemented. Approved prices/features, consent-cleared client transformations, and deployed device/accessibility/performance QA remain open.
 
 > **Purpose:** A build-ready technical plan for a greenfield bilingual coaching landing page.  
 > **Companion brief:** [`PROJECT_BRIEF.md`](./PROJECT_BRIEF.md)  
@@ -587,7 +587,7 @@ Run Chromium mobile and desktop flows:
 - [ ] Hero crop works on 320px and 1440px; copy never covers the coach’s face.
 - [ ] Arabic is default, RTL, and has no bidi/overflow defects.
 - [ ] English is full content, LTR, and has no Arabic fallback copy.
-- [ ] Font licence and web implementation are confirmed.
+- [ ] Webfont rendering and fallbacks are verified in both locales.
 - [ ] Buttons, focus states, contrast, menu and language switch pass checks.
 - [ ] Video is enhancement only and poster fallback is visually complete.
 

@@ -23,14 +23,14 @@ export const navAnchors: NavAnchor[] = [
     hash: '#results',
   },
   {
+    id: 'transformations',
+    label: { ar: 'التحولات', en: 'Transformations' },
+    hash: '#transformations',
+  },
+  {
     id: 'plans',
     label: { ar: 'الباقات', en: 'Plans' },
     hash: '#plans',
-  },
-  {
-    id: 'contact',
-    label: { ar: 'تواصل', en: 'Contact' },
-    hash: '#contact',
   },
 ];
 
